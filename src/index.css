@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+  /* Premium Color Palette */
+  --color-black: #050505;
+  --color-black-rich: #0a0a0c;
+  --color-dark-gray: #121214;
+
+  /* Gold Gradient Stops */
+  --color-gold-100: #fff4bd;
+  --color-gold-300: #ffd700;
+  --color-gold-500: #d4af37;
+  --color-gold-700: #aa8c2c;
+  --color-gold-900: #554616;
+
+  /* Accents */
+  --color-blood-red: #8b0000;
+  --color-blood-dark: #4a0000;
+  --color-fire-orange: #ff4500;
+  --color-ember: #cc3300;
+
+  /* Text */
+  --color-text-main: #f0f0f0;
+  --color-text-muted: #888888;
+  --color-text-gold: var(--color-gold-300);
+
+  /* Typography */
+  --font-heading: 'Cinzel', serif;
+  /* More majestic/cinematic than Bebas */
+  --font-subheading: 'Bebas Neue', sans-serif;
+  --font-body: 'Roboto', sans-serif;
+  --font-accent: 'Playfair Display', serif;
+
+  /* Transitions */
+  --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-slow: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* FX */
+  --shadow-gold: 0 0 20px rgba(212, 175, 55, 0.15);
+  --glow-gold-strong: 0 0 30px rgba(255, 215, 0, 0.4);
+  --glow-text: 0 0 10px rgba(255, 215, 0, 0.3);
+
+  --glass-bg: rgba(18, 18, 20, 0.65);
+  --glass-border: rgba(255, 215, 0, 0.1);
+  --glass-blur: blur(20px);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--color-gold-700);
+  color: var(--color-black);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--color-black);
+  background-image:
+    radial-gradient(circle at 50% 0%, #1a1a00 0%, transparent 60%),
+    linear-gradient(to bottom, #000000 0%, var(--color-black-rich) 100%);
+  color: var(--color-text-main);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-gold-300);
+  margin-bottom: 0.5em;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-smooth);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: var(--font-subheading);
+  letter-spacing: 1px;
+}
+
+/* Custom Scrollbar - Premium Gold */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--color-gold-900), var(--color-gold-500), var(--color-gold-900));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-300);
+}
+
+/* --- Utility Classes --- */
+
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+/* Typography Utilities */
+.text-gradient-gold {
+  background: linear-gradient(135deg, var(--color-gold-100) 0%, var(--color-gold-300) 40%, var(--color-gold-700) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+}
+
+.text-gradient-fire {
+  background: linear-gradient(to top, var(--color-blood-red), var(--color-fire-orange));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.font-cinzel {
+  font-family: var(--font-heading);
+}
+
+.font-bebas {
+  font-family: var(--font-subheading);
+}
+
+/* Visual Effects */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+}
+
+.glass-panel-heavy {
+  background: rgba(5, 5, 5, 0.85);
+  backdrop-filter: blur(40px);
+  border-top: 1px solid rgba(255, 215, 0, 0.15);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.gold-glow {
+  box-shadow: var(--shadow-gold);
+}
+
+.metallic-texture {
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMTExIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+');
+}
+
+/* Layout */
+section {
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  html {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  section {
+    padding: 6rem 0;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  section {
+    padding: 4rem 0;
+  }
+}

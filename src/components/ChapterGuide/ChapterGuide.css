@@ -1,0 +1,122 @@
+.section-chapters {
+    background: #0f0f0f;
+    padding: 8rem 0;
+}
+
+.chapter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 4rem;
+}
+
+.chapter-tabs {
+    display: flex;
+    gap: 1rem;
+}
+
+.tab-btn {
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    color: var(--color-text-dim);
+    border-bottom: 2px solid transparent;
+    text-transform: uppercase;
+}
+
+.tab-btn.active {
+    color: var(--color-gold);
+    border-bottom-color: var(--color-gold);
+}
+
+.chapter-subtitle {
+    font-size: 2.5rem;
+    color: var(--color-gold-dark);
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.events-list {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 800px;
+}
+
+.event-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.event-card:hover {
+    border-color: rgba(212, 175, 55, 0.4);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.event-header {
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.event-thumbnail-mini {
+    width: 60px;
+    height: 60px;
+    background: var(--color-coal-gray);
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.event-thumbnail-mini img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.event-title {
+    font-size: 1.5rem;
+    flex: 1;
+}
+
+.expand-icon {
+    font-size: 2rem;
+    color: var(--color-gold);
+}
+
+.event-details {
+    padding: 0 1.5rem 1.5rem 6.5rem;
+}
+
+.event-desc {
+    color: var(--color-text-dim);
+    margin-bottom: 1.5rem;
+}
+
+.event-quote {
+    border-left: 3px solid var(--color-gold-dark);
+    padding-left: 1rem;
+    font-style: italic;
+    color: var(--color-gold);
+}
+
+@media (max-width: 768px) {
+    .chapter-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+
+    .tab-btn {
+        padding: 0.5rem 1.5rem;
+        font-size: 1.2rem;
+    }
+
+    .event-details {
+        padding-left: 1.5rem;
+    }
+}

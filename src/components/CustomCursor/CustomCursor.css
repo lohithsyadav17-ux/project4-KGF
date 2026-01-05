@@ -1,0 +1,55 @@
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    /* transform is handled by framer-motion inline styles (x, y) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+    /* Center the cursor visually relative to the point */
+    margin-top: -5px;
+    margin-left: -5px;
+}
+
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-gold);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--color-gold);
+}
+
+.cursor-ring {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--color-gold-dark);
+    border-radius: 50%;
+    transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.custom-cursor.hover .cursor-ring {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(212, 175, 55, 0.1);
+    border-color: var(--color-gold);
+}
+
+.custom-cursor.hover .cursor-dot {
+    transform: scale(0.5);
+}
+
+.custom-cursor.clicking .cursor-ring {
+    width: 30px;
+    height: 30px;
+    background-color: rgba(255, 215, 0, 0.3);
+}
+
+@media (max-width: 1024px) {
+    .custom-cursor {
+        display: none;
+    }
+}
