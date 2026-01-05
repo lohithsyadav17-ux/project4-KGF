@@ -25,7 +25,8 @@ const MagneticButton: React.FC<MagneticButtonProps> = ({
         const x = clientX - (left + width / 2);
         const y = clientY - (top + height / 2);
 
-        setPosition({ x: x * 0.5, y: y * 0.5 });
+        // map range based on strength
+        setPosition({ x: (x / width) * strength, y: (y / height) * strength });
     };
 
     const handleMouseLeave = () => {
