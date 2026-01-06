@@ -15,9 +15,11 @@ const CharacterSection = lazy(() => import('./components/CharacterCard/Character
 const ChapterGuide = lazy(() => import('./components/ChapterGuide/ChapterGuide'));
 const Gallery = lazy(() => import('./components/Gallery/Gallery'));
 const Footer = lazy(() => import('./components/Footer/Footer'));
+const KGFGame = lazy(() => import('./components/Game/KGFGame'));
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [showGame, setShowGame] = useState(false);
 
   return (
     <div className="app">
@@ -30,7 +32,7 @@ function App() {
             <CustomCursor />
             <GoldParticles />
             <FireEmbers />
-            <Navbar />
+            <Navbar onPlayGame={() => setShowGame(true)} />
             <main>
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
                 <Hero />
@@ -53,6 +55,13 @@ function App() {
             </main>
             <Suspense fallback={null}>
               <Footer />
+            </Suspense>
+
+            {/* Game Overlay */}
+            <Suspense fallback={null}>
+              <AnimatePresence>
+                {showGame && <KGFGame onClose={() => setShowGame(false)} />}
+              </AnimatePresence>
             </Suspense>
           </>
         )}

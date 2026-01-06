@@ -3,7 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import MagneticButton from '../MagneticButton/MagneticButton';
 import './Navbar.css';
 
-const Navbar: React.FC = () => {
+import './Navbar.css';
+
+interface NavbarProps {
+    onPlayGame: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ onPlayGame }) => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -51,6 +57,7 @@ const Navbar: React.FC = () => {
                             className="nav-cta"
                             whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(255, 215, 0, 0.4)" }}
                             whileTap={{ scale: 0.95 }}
+                            onClick={onPlayGame}
                         >
                             Enter Empire
                         </motion.button>
@@ -98,6 +105,10 @@ const Navbar: React.FC = () => {
                         <motion.button
                             className="mobile-cta"
                             whileTap={{ scale: 0.95 }}
+                            onClick={() => {
+                                setIsMobileMenuOpen(false);
+                                onPlayGame();
+                            }}
                         >
                             Enter Empire
                         </motion.button>
